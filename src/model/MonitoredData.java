@@ -48,9 +48,13 @@ public class MonitoredData {
         this.activity = activity;
     }
 
-    public Integer getLength() {
+    public Integer getLengthInSeconds() {
         long diff = end_time.getTime() - start_time.getTime();
-        int ret = (int) (diff / (60 * 1000));
-        return ret;
+        return (int) (diff / 1000);
+    }
+
+    @Override
+    public String toString() {
+        return activity + ": " + start_time + " - " + end_time + "\n";
     }
 }
